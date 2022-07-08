@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { NoteListComponent } from './note-list/note-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NoteDetailsComponent } from './note-details/note-details.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NoteDetailsComponent } from './note-details/note-details.component';
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }),
+      InMemoryDataService, {dataEncapsulation: false}),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

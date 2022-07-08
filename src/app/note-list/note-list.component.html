@@ -1,7 +1,10 @@
 <div class="container overflow-auto">
   <ul *ngFor="let note of notes" id="note-list" >
     <li class="note-link bg-dark" data-toggle="tooltip" data-placement="top" title="{{note.title}}">
-      <a class="list-group-item list-group-item-action bg-dark" routerLink="/notes/{{note.id}}"><h2 class="title-text">{{note.title}}</h2></a>
+      <a class="list-group-item list-group-item-action bg-dark" routerLink="/notes/{{note.id}}" outerLinkActive="active"
+         ariaCurrentWhenActive="page">
+        <h2 class="title-text">{{note.title}}</h2>
+      </a>
     </li>
   </ul>
 </div>
@@ -11,7 +14,7 @@
       <button type="button" class="btn btn-success" (click)="addNote()"> + </button>
     </div>
     <div class="right-bar" *ngIf="noteSelected">
-      <button type="button" class="btn btn-info" (click)="addNote()"> &#9745; </button>
-      <button type="button" class="btn btn-danger" (click)="addNote()"> &#9760; </button>
+      <button type="button" class="btn btn-info" (click)="deleteNote()"> &#9745; </button>
+      <button type="button" class="btn btn-danger" (click)="saveNote()"> &#9760; </button>
     </div>
 </div>

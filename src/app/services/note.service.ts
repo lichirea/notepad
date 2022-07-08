@@ -40,6 +40,7 @@ export class NoteService {
     return this.http.post<Note>(this.notesUrl, newNote, this.httpOptions)
       .pipe(
         //tap((newNote: Note) => this.log(`added note w/ id=${newNote.id}`)),
+        tap((newNote: Note) => console.log(`added note w/ id=${newNote.id}`)),
         catchError(this.handleError<any>('addNote'))
       );
   }

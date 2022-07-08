@@ -9,7 +9,7 @@ import {NoteService} from "../services/note.service";
 })
 export class NoteListComponent implements OnInit {
   notes!: Note[];
-  noteSelected: number = 1;
+  noteSelected: number = 0;
 
   constructor(private noteService: NoteService) { }
 
@@ -22,11 +22,21 @@ export class NoteListComponent implements OnInit {
       .subscribe(notes => this.notes = notes);
   }
 
-  addNote() {
+  addNote(): void {
     this.noteService.addNote()
       .subscribe(note => {
-        this.notes.push(note)
+        this.notes.push(note);
+        this.noteSelected = note.id;
+        console.log("HELLO WE HAVE A NEW NOTE " + note);
       });
+
+  }
+
+  deleteNote() {
+
+  }
+
+  saveNote() {
 
   }
 }

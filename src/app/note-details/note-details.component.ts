@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Note} from "../note/note";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NoteService} from "../services/note.service";
 
 @Component({
@@ -15,15 +15,18 @@ export class NoteDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private noteService: NoteService,
+    private router: Router,
   ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
 
   ngOnInit(): void {
     this.getNote();
   }
 
-
-  private getNote(): void {
+  getNote(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.noteService.getNote(id)
       .subscribe(note => this.note = note);

@@ -4,6 +4,7 @@ import {NoteDetailsComponent} from "./note-details/note-details.component";
 
 const routes: Routes = [
   {path: 'notes/:id', component: NoteDetailsComponent},
+  {path: '', redirectTo: '/', pathMatch: 'full'},
 ];
 
 @NgModule({
