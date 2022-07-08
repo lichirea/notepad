@@ -2,4 +2,10 @@
   display:flex;
   flex-direction: column;
   width: 20%;
+  background-color: lightslategray;
+}
+
+.title-text{
+  color: white;
+  font-size: 1rem;
 }

@@ -1,5 +1,5 @@
 <div *ngFor="let note of notes" id="note-list" class="overflow-auto">
-  <div class="note-link">
-    <a class="list-group-item list-group-item-action"><span> {{note.title}}</span></a>
+  <div class="note-link bg-dark" data-toggle="tooltip" data-placement="top" title="{{note.title}}">
+    <a class="list-group-item list-group-item-action bg-dark"><h2 class="title-text">{{note.title}}</h2></a>
   </div>
 </div>
