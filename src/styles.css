@@ -2,6 +2,7 @@
 body{
   font-family: "DejaVu Sans";
   height: 100%;
+  overflow: hidden;
 }
 html{
   height: 100%;

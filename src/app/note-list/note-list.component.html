@@ -1,8 +1,7 @@
 <div class="container overflow-auto">
   <ul *ngFor="let note of notes" id="note-list" >
     <li class="note-link bg-dark" data-toggle="tooltip" data-placement="top" title="{{note.title}}">
-      <a class="list-group-item list-group-item-action bg-dark" routerLink="/notes/{{note.id}}" outerLinkActive="active"
-         ariaCurrentWhenActive="page">
+      <a class="list-group-item list-group-item-action bg-dark" routerLink="/notes/{{note.id}}">
         <h2 class="title-text">{{note.title}}</h2>
       </a>
     </li>
