@@ -1,11 +1,48 @@
+.container{
+  width: 20%;
+  margin-left: 0;
+  border-left: 0;
+  padding-left: 0;
+  height: 80%;
+  max-height: 80%;
+  background-color: indigo;
+}
+
 #note-list{
   display:flex;
   flex-direction: column;
-  width: 20%;
-  background-color: lightslategray;
+  background-color: transparent;
+  margin-top: 5px;
+  margin-bot: 5px;
+}
+
+.left-bar{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.right-bar{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  width: 10%;
+}
+
+#button-list{
+  display: flex;
+  flex-direction: row;
+  background-color: #375872;
+  margin-top: fill;
+  height:13%;
+  justify-content: space-between;
 }
 
 .title-text{
   color: white;
   font-size: 1rem;
+}
+
+.btn{
+  font-size: 50px;
 }

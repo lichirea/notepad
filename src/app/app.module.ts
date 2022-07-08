@@ -8,12 +8,14 @@ import { InMemoryDataService} from "./web-api/in-memory-data.service";
 import {HttpClientModule} from "@angular/common/http";
 import { NoteListComponent } from './note-list/note-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NoteDetailsComponent } from './note-details/note-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NoteListComponent,
-    NavbarComponent
+    NavbarComponent,
+    NoteDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,17 @@
-<div *ngFor="let note of notes" id="note-list" class="overflow-auto">
-  <div class="note-link bg-dark" data-toggle="tooltip" data-placement="top" title="{{note.title}}">
-    <a class="list-group-item list-group-item-action bg-dark"><h2 class="title-text">{{note.title}}</h2></a>
-  </div>
+<div class="container overflow-auto">
+  <ul *ngFor="let note of notes" id="note-list" >
+    <li class="note-link bg-dark" data-toggle="tooltip" data-placement="top" title="{{note.title}}">
+      <a class="list-group-item list-group-item-action bg-dark" routerLink="/notes/{{note.id}}"><h2 class="title-text">{{note.title}}</h2></a>
+    </li>
+  </ul>
+</div>
+
+<div class="list-group-item list-group-item-action" id="button-list">
+    <div class="left-bar">
+      <button type="button" class="btn btn-success" (click)="addNote()"> + </button>
+    </div>
+    <div class="right-bar" *ngIf="noteSelected">
+      <button type="button" class="btn btn-info" (click)="addNote()"> &#9745; </button>
+      <button type="button" class="btn btn-danger" (click)="addNote()"> &#9760; </button>
+    </div>
 </div>

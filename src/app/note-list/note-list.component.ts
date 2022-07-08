@@ -9,6 +9,7 @@ import {NoteService} from "../services/note.service";
 })
 export class NoteListComponent implements OnInit {
   notes!: Note[];
+  noteSelected: number = 1;
 
   constructor(private noteService: NoteService) { }
 
@@ -21,5 +22,11 @@ export class NoteListComponent implements OnInit {
       .subscribe(notes => this.notes = notes);
   }
 
+  addNote() {
+    this.noteService.addNote()
+      .subscribe(note => {
+        this.notes.push(note)
+      });
 
+  }
 }

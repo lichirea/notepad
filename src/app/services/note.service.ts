@@ -15,6 +15,7 @@ export class NoteService {
 
   constructor(
     private http: HttpClient,
+
   ) { }
 
   getNotes(): Observable<Note[]>{
@@ -24,6 +25,25 @@ export class NoteService {
         catchError(this.handleError<Note[]>('getNotes', []))
       );
   }
+
+  getNote(id: number): Observable<Note> {
+    return this.http.get<Note>(this.notesUrl + '/' + id)
+      .pipe(
+        tap(_ => this.log(`Fetched note with id=${id}`)),
+        catchError(this.handleError<Note>('getNote'))
+      );
+  }
+
+  addNote(): Observable<any> {
+    let currentDate = new Date();
+    let newNote = {title: 'Untitled note', date_created: currentDate, last_modified: currentDate, content: 'Write some notes!'};
+    return this.http.post<Note>(this.notesUrl, newNote, this.httpOptions)
+      .pipe(
+        //tap((newNote: Note) => this.log(`added note w/ id=${newNote.id}`)),
+        catchError(this.handleError<any>('addNote'))
+      );
+  }
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -43,4 +63,7 @@ export class NoteService {
   private log(message: string) {
     //this.messageService.add(`HeroService: ${message}`)
   }
+
+
+
 }
